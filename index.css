@@ -19,8 +19,19 @@ body {
     align-items: center;
 }
 
+.drum img{
+	height: 150px;
+}
+
+.drum{
+	margin-right: 50px;
+	margin-left: 50px;
+	
+}
+
 h2 {
-    font-size: 38px;
+    display: inline-block;
+    font-size: 83px;
     letter-spacing: 1.5px;
     margin-right: -1.5px;
     color: #ffc600
@@ -65,4 +76,13 @@ h2 {
     transform: scale(1.1);
     border-color: #ffc600;
     box-shadow: 0 0 1rem #ffc600;
+}
+
+@media screen and (max-width: 600px) { 
+	.drum img{
+		height: 80px;
+	}
+	h2{
+		font-size: 70px;
+	}
 }
