@@ -13,6 +13,7 @@ let keypressCodes = {
 }
 
 let removeTransition = (event) => {
+    //console.log(event);
     if(event.propertyName !== "transform"){
         return;
     }else{
@@ -24,15 +25,25 @@ let playSoundOnCLick = (event) => {
     if (event.target.id === "play") {
         return;
     } else {
-        let id = event.target.id + ".0";
-        let sound = document.getElementById(id);
-        let classId = document.getElementById(event.target.id);
-        if (sound) {
-            sound.currentTime = 0;
+        let id;
+        let parentId = event.target.parentNode.id;
+        let currentId = event.target.id;
+        if(parentId === "play"){
+            id = currentId;
+        }else{
+            id = parentId;
         }
-        let classList = classId.classList;
+        //console.log(id);
+        let soundId = id + ".0";
+        let soundEl = document.getElementById(soundId);
+        //console.log(soundEl);
+        let classEl = document.getElementById(id);
+        if (soundEl) {
+            soundEl.currentTime = 0;
+        }
+        let classList = classEl.classList;
         classList.add("playing");
-        sound.play();
+        soundEl.play();
     }
 }
 
@@ -41,7 +52,7 @@ let playOnKeypress = (e) => {
     if(id === undefined){
         return;
     }else{
-        console.log(e.code);
+        //console.log(e.code);
         let sound = document.getElementById(id + ".0");
         let classId = document.getElementById(id);
         if (sound) {
